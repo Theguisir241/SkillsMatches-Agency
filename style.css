@@ -1,0 +1,1112 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* ===== RESET ===== */
+* {
+  margin: 0 ;
+  padding: 0;
+  box-sizing: border-box;
+  list-style :none;
+  font-family: "Lato", sans-serif;
+
+}
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+body,html {
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden; /* empêche le scroll horizontal */
+  margin: 0;
+  padding: 0 ;
+}
+
+/* ===== NAVBAR ===== */
+
+
+/* === NAVBAR BASE === */
+.navbar {
+  position: fixed; /* navbar reste toujours en haut */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2%;
+  background: rgba(255, 255, 255, 0.5); /* transparent avec un peu d'opacité */
+  backdrop-filter: blur(10px); /* flou derrière la navbar pour un effet glass */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+
+/* === LOGO === */
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+.logo span {
+ color: #ffc192;
+}
+
+/* === NAV LINKS === */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:hover {
+  color: #90EDB4;
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* === BUTTON PRIMARY === */
+.btn-primary {
+  background-image: linear-gradient(to right,#90EDB4,#ffc192);
+  color: white;
+  padding: 0.6rem 1.3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(46,204,113,0.2);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Add this to your stylesheet */
+.button-spacing {
+    margin-right: 15px; /* Adjust this value to control the gap size */
+}
+
+/* Optional: If the buttons are stacked on mobile, you might want to remove the margin */
+@media (max-width: 600px) {
+    .button-spacing {
+        margin-right: 0;
+        margin-bottom: 10px; /* Example for stacking */
+    }
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px) scale(1.05);
+  background-image: linear-gradient(to right,#ffc192,#90EDB4);
+
+}
+
+/* === HAMBURGER MENU === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #ffc192;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* === MOBILE MENU === */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    width: 80%;
+    max-width: 300px;
+    transform: translateY(-200%) scale(0.95);
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+  .nav-links.active {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  .btn-primary {
+    display: none;
+  }
+}
+/* ===== HERO ===== */
+#hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 20px;
+  background: white;
+  gap: 2rem;
+  animation: fadeIn 2s ease forwards;
+}
+.hero-btn{
+  background-image: linear-gradient(to right,#90EDB4,#ffc192);
+  color: rgb(0, 0, 0);
+  padding: 0.6rem 1.3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(46,204,113,0.2);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  background-image: linear-gradient(to right,#ffc192,#90EDB4);
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  animation: slideLeft 1s ease forwards;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  line-height: 3rem;
+}
+
+.hero-text p {
+  margin-bottom: 1.5rem;
+}
+
+.text-accent {
+  color: #ffc192;
+}
+
+
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  animation: slideRight 1s ease forwards;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  margin-top: 30px;
+  
+}
+@media (max-width: 768px) {
+  .hero-btn {
+    display: flex;
+    width: 50%;
+    font-size: small;
+    margin-top: 8px;
+  } 
+}
+
+/* ---- ABOUT ---- */
+#about {
+  padding: 5rem 8%;
+  background: #fff;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.text-accent-2 {
+  color: #ffc192;
+}
+
+.about-text p {
+  color:black;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.btn-second {
+  background-image: linear-gradient(to right,#90EDB4,#ffc192);
+  color: rgb(0, 0, 0);
+  padding: 0.6rem 1.3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-second:hover {
+ transform: translateY(-3px) scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+  .about-image img {
+    max-width: 100%;
+  }
+}
+
+/* ===== LEARNING MODULES ===== */
+/* === SECTION MODULES (style carousel témoignages) === */
+.modules-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  padding: 1rem 2%;
+  box-sizing: border-box;
+  overflow: hidden; /* empêche le scroll horizontal */
+}
+.modules-section {
+  text-align: center; /* centre tous les éléments en ligne */
+}
+
+.modules-section .section-title {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem; /* espace sous le titre */
+}
+
+.modules-section .registration-fee {
+  margin-bottom: 3rem; /* espace avant les cartes */
+  font-weight: 500;
+  color: #333;
+}
+
+/* ======================== */
+/* ===== MODULES SECTION ===== */
+/* ======================== */
+
+.modules-section {
+    padding: 60px 8%; /* Rembourrage autour de la section */
+    text-align: center;
+    background-color: #ffffff; /* Fond blanc ou très clair */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.registration-fee {
+    font-size: 1.1rem;
+    color: #90EDB4; /* Couleur de la marque pour le prix */
+    font-weight: 600;
+    margin-bottom: 40px;
+    border: 2px solid #90EDB4;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* --- Container des Cartes --- */
+.modules-container {
+    display: grid;
+    /* Grid pour un agencement en 3 colonnes sur grands écrans */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Espace entre les cartes */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Style de la Carte de Module --- */
+.module-card {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Assure que l'image est contenue */
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.module-card:hover {
+    /* Effet au survol pour donner vie à la carte */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(144, 237, 180, 0.4);
+}
+
+/* --- Image --- */
+.module-image {
+    height: 180px; /* Hauteur fixe pour l'image */
+    overflow: hidden;
+}
+
+.module-image img {
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    object-fit: cover; /* Assure que l'image couvre la zone sans être déformée */
+    transition: transform 0.5s ease;
+}
+
+.module-card:hover .module-image img {
+    transform: scale(1.05); /* Petit zoom au survol */
+}
+
+/* --- Contenu Texte --- */
+.module-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permet au contenu de s'étendre et de centrer le bouton */
+    justify-content: space-between;
+}
+
+.module-content h3 {
+    font-size: 1.4rem;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.module-content p {
+    color: #333;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* --- Badge de Prix --- */
+.price-badge {
+    display: inline-block;
+    color: #000000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* --- Bouton d'Inscription --- */
+/* Bouton d'Inscription */
+.btn-enroll {
+    /* Propriété modifiée pour ne pas prendre toute la largeur */
+    display: inline-block;
+    
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 1.3rem;
+    border-radius: 50px;
+    
+    /* Ajouté pour centrer le bouton dans la carte */
+    margin: 15px auto 0;
+    
+    background-image: linear-gradient(to right, #90EDB4, #ffc192);
+    color: #000000;
+    
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-enroll:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-image: linear-gradient(to right, #ffc192, #90EDB4);
+    color: #000000;
+}
+
+
+
+/* ======================== */
+/* ===== RESPONSIVE CSS ===== */
+/* ======================== */
+
+/* Pour les tablettes (max 992px) - 2 colonnes */
+@media (max-width: 992px) {
+    .modules-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .modules-section {
+        padding: 40px 5%;
+    }
+}
+
+/* Pour les mobiles (max 600px) - 1 colonne */
+@media (max-width: 600px) {
+    .modules-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+/* === TEAM SECTION BASE === */
+.team-section {
+  padding: 10px 0;
+  text-align: center;
+  
+}
+
+.team-section .section-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.team-section .team-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 3rem;
+}
+
+/* === TEAM CARDS === */
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-card {
+  padding: 2rem 1rem;
+  background-color: transparent; /* fond transparent */
+  box-shadow: none; /* supprime l'ombre */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centre le contenu horizontalement */
+  text-align: center;  /* centre le texte */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+}
+
+.team-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #ffc192; /* accent color */
+}
+
+.team-info h3 {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.team-info .role {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.3rem;
+}
+.team-info p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+/* SECTION CONTACT */
+/* ENROLLMENT SECTION */
+/* ENROLLMENT SECTION */
+.enrollment-section {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 1rem 1%;
+  background-color: #fff;
+}
+
+.enrollment-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 2rem;
+}
+
+/* LEFT SIDE */
+.enrollment-left {
+  flex: 1;
+  background-color: #90EDB4;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+.enrollment-left h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #000;
+  font-weight: 700;
+}
+
+.enrollment-left p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+.contact-divider {
+  border: none;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 1.5rem 0;
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.contact-info i {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #000;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* RIGHT SIDE */
+.enrollment-right {
+  flex: 1;
+  background-color: #fff;
+  color: #000;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* FORM STYLING */
+.enrollment-form .form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.enrollment-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.enrollment-form input,
+.enrollment-form select,
+.enrollment-form textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid #90EDB4;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.enrollment-form input:focus,
+.enrollment-form select:focus,
+.enrollment-form textarea:focus {
+  border-color: #000;
+}
+
+/* SUBMIT BUTTON */
+.btn-submit {
+  background: linear-gradient(to right, #90EDB4,#ffc192);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .enrollment-container {
+    flex-direction: column;
+  }
+  
+  .enrollment-left,
+  .enrollment-right {
+    width: 100%;
+  }
+}
+
+
+
+/* ---- TESTIMONIALS SECTION ---- */
+/* ==============================
+   TESTIMONIALS SECTION
+   ============================== */
+#testimonials {
+  position: relative;
+  padding: 5rem 5%;
+  overflow: hidden; /* pour contenir les flous */
+  background-color: #fff;
+  text-align: center;
+}
+
+/* Titre et sous-titre */
+#testimonials h4 {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+#testimonials .section-title {
+  font-size: 2rem;
+  color: #000;
+  margin-bottom: 3rem;
+}
+
+/* ==============================
+   FLUOS IRREGULIERS
+   ============================== */
+
+/* Coin inférieur gauche */
+#testimonials::before {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 250px;
+  height: 250px;
+  background: #90EDB4;
+  filter: blur(80px);
+  border-radius: 20%;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+/* Coin supérieur droit */
+#testimonials::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  background: #90EDB4;
+  filter: blur(60px);
+  border-radius: 30%;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+
+
+
+/* ==============================
+   CARROUSEL DES TESTIMONIALS
+   ============================== */
+#testimonials .testimonial-carousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+#testimonials .testimonial-item {
+  min-width: 280px;
+  max-width: 320px;
+  flex: 0 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#testimonials .testimonial-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+}
+
+#testimonials .testimonial-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #5b7fff;
+}
+
+#testimonials .testimonial-content p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+#testimonials .testimonial-content h4 {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#testimonials .testimonial-content .role {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ==============================
+   SCROLLBAR HIDE MOBILE
+   ============================== */
+#testimonials .testimonial-carousel::-webkit-scrollbar {
+  display: none;
+}
+#testimonials .testimonial-carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+/* Responsive : réduire la taille des flous sur petits écrans */
+@media (max-width: 768px) {
+  #testimonials::before {
+     width: 300px;      /* augmente la largeur du flou */
+  height: 150px;     /* hauteur pour former un demi-cercle */
+    filter: blur(60px);
+  }
+  #testimonials::after {
+    width: 100px;
+    height: 100px;
+    filter: blur(50px);
+  }
+}
+
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #000000;
+
+}
+
+/* Carousel */
+
+
+/* Carte témoignage */
+.testimonial-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 1rem 1%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 1;           /* invisible avant reveal */
+  transform: translateY(0);
+  position: relative;
+  animation: float-slow 3s ease-in-out infinite;
+}
+
+.testimonial-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+}
+
+/* Animation flottante subtile */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Image ronde */
+.testimonial-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  border: 3px solid #90EDB4;
+}
+
+/* Contenu du témoignage */
+.testimonial-content p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.testimonial-content h4 {
+  margin: 0.3rem 0 0 0;
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: 600;
+}
+
+.testimonial-content .role {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+/* Reveal au scroll */
+.testimonial-item.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  animation: reveal-up 0.8s ease forwards, float-slow 3s ease-in-out infinite 0.8s;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-carousel {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-item {
+    padding: 1.5rem 1rem;
+  }
+
+  .testimonial-item img {
+    width: 70px;
+    height: 70px;
+  }
+}
+/* Bouton Swipe Right */
+.swipe-right-btn {
+  position: absolute;
+  bottom: 10px; /* ou top: 50%; selon le design */
+  right: 20px;
+  background-image: linear-gradient(to right,#90EDB4,#ffc192);
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 10;
+  animation: floatSwipe 1.5s ease-in-out infinite;
+}
+
+/* Flottement subtil */
+@keyframes floatSwipe {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Icone */
+.swipe-right-btn i {
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .swipe-right-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==============================
+   1. FAQ SECTION
+============================== */
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.faq-item {
+  background: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.05rem;
+}
+
+.faq-answer {
+  padding: 0 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background: #fff;
+}
+
+
+/* ===== FOOTER ===== #90EDB4,#ffc192*/
+
+
+.footer-container {
+  display: flex;
+  background-color: #90EDB4;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: space-between;
+  gap: 5px;
+  text-align: center;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-logo {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #000000; /* accent couleur */
+  margin-bottom: 10px;
+}
+
+.footer-logo span {
+  color: #fff;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 5px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffc192;
+}
+
+.footer-links ul,
+.footer-contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.footer-contact li {
+  margin: 8px 0;
+}
+
+.footer-links a {
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ffc192;
+}
+
+.footer-contact{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  background-color:#90EDB4 ;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
