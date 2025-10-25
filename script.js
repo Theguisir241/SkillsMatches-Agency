@@ -68,3 +68,28 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('JS connected! Everything is initialized.');
 
 });
+// MODULES ANIMATIONS 
+// Sélection de toutes les cartes
+const moduleCards = document.querySelectorAll('.module-card');
+
+const revealOnScroll = () => {
+  const windowHeight = window.innerHeight;
+
+  moduleCards.forEach((card, index) => {
+    const elementTop = card.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) { // seuil pour déclencher
+      setTimeout(() => {
+        card.classList.add('reveal');
+      }, index * 50); // décalage progressif entre les cartes
+    }
+  });
+};
+
+// Déclenche à chaque scroll
+window.addEventListener('scroll', revealOnScroll);
+// Déclenche au chargement pour les cartes déjà visibles
+window.addEventListener('load', revealOnScroll);
+ 
+
+
