@@ -178,21 +178,66 @@ body,html {
   background: white;
   gap: 2rem;
   animation: fadeIn 2s ease forwards;
+  margin-bottom: 10px;
 }
-.hero-btn{
-  background-image: linear-gradient(to right,#90EDB4,#ffc192);
-  color: rgb(0, 0, 0);
+
+/* --- Boutons Hero --- */
+.hero-buttons {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 1.2s; /* apparaît après le texte et l’image */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Apparence de base des boutons */
+.hero-btn {
+   background-image: linear-gradient(to right,#90EDB4,#ffc192);
+  color: white;
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(46,204,113,0.2);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.3s ease, transform 0.3s ease;
+  position: relative;
+  animation: pulse 3s ease-in-out infinite; /* animation continue */
 }
+
+/* Hover : plus clair + léger zoom */
 .hero-btn:hover {
-  transform: translateY(-5px) scale(1.05);
-  background-image: linear-gradient(to right,#ffc192,#90EDB4);
+  transform: translateY(-3px) scale(1.03);
 }
+
+/* --- Animations clés --- */
+
+/* réutilise ton fadeInUp global */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* effet de pulsation douce */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 123, 255, 0);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+  }
+}
+
 
 .hero-text {
   flex: 1;
@@ -237,6 +282,64 @@ body,html {
     margin-top: 8px;
   } 
 }
+/* --- Fade-in global --- */
+#hero .hero-text,
+#hero .hero-image {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+/* Le texte apparaît d'abord */
+#hero .hero-text {
+  animation-delay: 0.3s;
+}
+
+/* L’image apparaît un peu après */
+#hero .hero-image {
+  animation-delay: 0.8s;
+}
+
+/* --- Animation de flottement continu de l’image --- */
+#hero .hero-image {
+  /* on garde le fadeInUp sur le conteneur si tu veux */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.0s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+/* image : display block + animation float (séparée) */
+#hero .hero-image img {
+  display: block;                /* évite comportement inline */
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  /* animation dédiée à l'image (ne conflit pas avec l'animation du container) */
+  animation: float 5s ease-in-out infinite;
+  will-change: transform;        /* aide le navigateur */
+  backface-visibility: hidden;   /* améliore rendu sur certains navigateurs */
+  transform-origin: center center;
+}
+
+/* keyframes pour l'effet float - on utilise translate3d pour activer le GPU */
+@keyframes float {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(0, -12px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* keyframes fadeInUp (conteneur) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* ---- ABOUT ---- */
 #about {
@@ -245,6 +348,7 @@ body,html {
 }
 
 .about-container {
+  margin-top: 0px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -280,7 +384,7 @@ body,html {
 
 .btn-second {
   background-image: linear-gradient(to right,#90EDB4,#ffc192);
-  color: rgb(0, 0, 0);
+  color: white;
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
   text-decoration: none;
@@ -372,6 +476,17 @@ body,html {
     display: flex;
     flex-direction: column;
 }
+.module-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.module-card.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .module-card:hover {
     /* Effet au survol pour donner vie à la carte */

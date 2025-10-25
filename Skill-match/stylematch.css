@@ -360,6 +360,31 @@ section {
   color: var(--text-muted);
   line-height: 1.7;
 }
+@media (max-width:500px)  {
+  .about-features-grid {
+    display: flex;             /* essentiel pour que justify-content fonctionne */
+    flex-direction: row;       /* garde la disposition en ligne */
+    flex-wrap: wrap;           /* permet aux items de passer à la ligne si nécessaire */
+    justify-content: center;   /* centre les items horizontalement */
+    gap: 1rem;                 /* réduit l'espace entre eux */
+    padding: 0 10px;           /* évite que le texte touche les bords */
+  }
+
+  .feature-item {
+    max-width: 300px;          /* limite la largeur de chaque item */
+    text-align: center;        /* centre le texte dans l'item */
+    margin: 0;                 /* supprime les marges inutiles */
+  }
+
+  .feature-item p {
+    font-size: 0.9rem;         /* texte plus lisible */
+    line-height: 1.4;
+  }
+
+  .feature-item h3 {
+    font-size: 1.1rem;         /* titre adapté */
+  }
+}
 
 
 /* ===================================================================
@@ -427,13 +452,25 @@ section {
 .cta-card h3, .cta-card p { color: var(--text-light); }
 .cta-card .card-icon-wrapper { background:transparent; color: var(--text-light); }
 .btn-cta { background-color: var(--text-light); color: var(--primary-color); padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 1rem; display: inline-block; transition: transform 0.3s ease; }
-.btn-cta:hover { transform: scale(1.05); }
+.btn-cta:hover { transform: scale(1.05);
+color: #000000;
+}
+
+.card-icon-wrapper i {
+  font-size: 1.8rem;
+  font-weight: 10;
+  color: #333;
+}
+.focus-card:hover .card-icon-wrapper i {
+  color: #00BCD4; /* bleu */
+}
+
 
 .cta-card:hover .card-icon-wrapper {
   color: #000000; /* icône devient noire */
   transform: scale(1.2); /* garde l’effet de zoom */
 }
-.focus-card ul li:hover{
+.focus-card ul li:hover,.card-icon-wrapper i:hover {
   color: #00BCD4;
  
 }
