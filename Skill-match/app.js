@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ----------------------
 // FAQ ACCORDION
 // ----------------------
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>{
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
@@ -28,4 +28,4 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isActive) item.classList.add('active');
     });
   });
-
+});
