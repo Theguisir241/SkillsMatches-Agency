@@ -15,6 +15,26 @@
   font-weight: 900;
   font-style: normal;
 }
+.particles-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(15px); /* flou général */
+  opacity: 0.8;
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+
+#about, #learning-modules {
+  position: relative;
+  overflow: hidden;
+}
+
+
 
 body,html {
   line-height: 1.6;
@@ -118,9 +138,7 @@ body,html {
   color: var(--text-dark);
   text-decoration: none;
 }
-.logo span {
- color: #c58bf2;
-}
+
 
 /* === NAV LINKS === */
 .nav-links {
@@ -148,13 +166,12 @@ body,html {
 
 /* === BUTTON PRIMARY === */
 .btn-primary {
-  background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
   color: white;
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(46,204,113,0.2);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Add this to your stylesheet */
@@ -175,7 +192,7 @@ body,html {
 
 }
 
-/* === HAMBURGER MENU === */
+/* === HAMBURGER MENU === */   
 .hamburger {
   display: none;
   flex-direction: column;
@@ -188,7 +205,7 @@ body,html {
 .hamburger span {
   display: block;
   height: 3px;
-  background: #c58bf2;
+  background: #000000;
   border-radius: 10px;
   transition: all 0.3s ease;
 }
@@ -264,13 +281,12 @@ body,html {
 
 /* --- Boutons Hero --- */
 .hero-btn {
-  background-image: linear-gradient(90deg, #cff7e1 0%, #c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
   color: white;
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   animation: pulse 3s ease-in-out infinite; /* animation continue */
@@ -437,8 +453,8 @@ footer {
 
 /* --- Formes floues organiques --- */
 /* --- Formes floues organiques dominantes #cff7e1 sur toutes les sections sauf hero & navbar --- */
-section:not(#hero):not(.navbar)::before,
-section:not(#hero):not(.navbar)::after,
+section:not(#hero):not(#about):not(#learning-modules):not(.navbar)::before,
+section:not(#hero):not(#learning-modules):not(#about):not(.navbar)::after,
 footer::before,
 footer::after {
   content: "";
@@ -461,37 +477,37 @@ footer::after {
 }
 
 /* --- Alternance des couleurs par section pour garder le vert dominant --- */
-section:not(#hero):not(.navbar):nth-of-type(1)::before {
+section:not(#hero):not(#learning-modules):not(#about):not(.navbar):nth-of-type(1)::before {
   top: -80px;
   left: -60px;
   background: radial-gradient(circle at 40% 40%, #cff7e1, #d1f5e3);
 }
 
-section:not(#hero):not(.navbar):nth-of-type(1)::after {
+section:not(#hero):not(#learning-modules):not(#about):not(.navbar):nth-of-type(1)::after {
   bottom: -80px;
   right: -60px;
   background: radial-gradient(circle at 60% 60%, #cff7e1, #ffc192);
 }
 
-section:not(#hero):not(.navbar):nth-of-type(2)::before {
+section:not(#hero):not(#learning-modules):not(#about):not(.navbar):nth-of-type(2)::before {
   top: -80px;
   left: -60px;
   background: radial-gradient(circle at 40% 40%, #cff7e1, #b8eccc);
 }
 
-section:not(#hero):not(.navbar):nth-of-type(2)::after {
+section:not(#hero):not(#learning-modules):not(.navbar):nth-of-type(2)::after {
   bottom: -80px;
   right: -60px;
   background: radial-gradient(circle at 60% 60%, #cff7e1, #ff31ee);
 }
 
-section:not(#hero):not(.navbar):nth-of-type(3)::before {
+section:not(#hero):not(#learning-modules):not(.navbar):nth-of-type(3)::before {
   top: -80px;
   left: -60px;
   background: radial-gradient(circle at 40% 40%, #cff7e1, #90EDB4);
 }
 
-section:not(#hero):not(.navbar):nth-of-type(3)::after {
+section:not(#hero):not(#learning-modules):not(.navbar):nth-of-type(3)::after {
   bottom: -80px;
   right: -60px;
   background: radial-gradient(circle at 60% 60%, #cff7e1, #ffc192);
@@ -572,7 +588,7 @@ footer::after {
 }
 
 .btn-second {
-background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
   color: white;
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
@@ -745,7 +761,8 @@ background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
     border-radius: 50px;
     /* Ajouté pour centrer le bouton dans la carte */
     margin: 15px auto 0;
-  background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
+    background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
+
     color: #000000;
     
     box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
@@ -754,7 +771,7 @@ background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
 
 .btn-enroll:hover {
     transform: translateY(-5px) scale(1.05);
-    background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
     color: #000000;
 }
 
@@ -1018,7 +1035,7 @@ background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
 .enrollment-form select,
 .enrollment-form textarea {
   padding: 0.75rem 1rem;
-  border: 2px solid #90EDB4;
+  border: 2px solid #000000;
   border-radius: 8px;
   outline: none;
   font-size: 1rem;
@@ -1027,25 +1044,24 @@ background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
 
 .enrollment-form input:focus,
 .enrollment-form select:focus,
-.enrollment-form textarea:focus {
+.enrollment-form textarea:focus { 
   border-color: #000;
 }
 
 /* SUBMIT BUTTON */
 .btn-submit {
-  background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
   color: #fff;
   font-weight: 600;
   padding: 0.75rem 2rem;
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .btn-submit:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
 /* RESPONSIVE */
