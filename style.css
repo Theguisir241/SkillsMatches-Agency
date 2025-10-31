@@ -594,7 +594,6 @@ body,html {
 .module-card:hover {
     /* Effet au survol pour donner vie à la carte */
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(144, 237, 180, 0.4);
 }
 
 /* --- Image --- */
