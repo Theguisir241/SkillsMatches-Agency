@@ -166,7 +166,7 @@ body,html {
 
 /* === BUTTON PRIMARY === */
 .btn-primary {
-  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
   color: white;
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
@@ -281,7 +281,7 @@ body,html {
 
 /* --- Boutons Hero --- */
 .hero-btn {
-  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
   color: white;
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
@@ -588,7 +588,7 @@ footer::after {
 }
 
 .btn-second {
-  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
   color: white;
   padding: 0.6rem 1.3rem;
   border-radius: 50px;
@@ -761,7 +761,7 @@ footer::after {
     border-radius: 50px;
     /* Ajouté pour centrer le bouton dans la carte */
     margin: 15px auto 0;
-    background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
 
     color: #000000;
     
@@ -771,7 +771,7 @@ footer::after {
 
 .btn-enroll:hover {
     transform: translateY(-5px) scale(1.05);
-  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
     color: #000000;
 }
 
@@ -1050,7 +1050,7 @@ footer::after {
 
 /* SUBMIT BUTTON */
 .btn-submit {
-  background-image: linear-gradient(45deg, #cff7e1 20%, #c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
   color: #fff;
   font-weight: 600;
   padding: 0.75rem 2rem;
@@ -1061,7 +1061,7 @@ footer::after {
 }
 
 .btn-submit:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 }
 
 /* RESPONSIVE */
@@ -1330,7 +1330,7 @@ footer::after {
   position: absolute;
   bottom: 10px; /* ou top: 50%; selon le design */
   right: 20px;
-  background-image: linear-gradient(90deg,#cff7e1 0%,#c58bf2 50%, #f8b88b 100%);
+  background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
   color: #333;
   padding: 0.5rem 1rem;
   border-radius: 50px;
