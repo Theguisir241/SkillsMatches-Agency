@@ -677,16 +677,12 @@ body,html {
     /* Ajouté pour centrer le bouton dans la carte */
     margin: 15px auto 0;
   background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
-
     color: #000000;
-    
-    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-enroll:hover {
     transform: translateY(-5px) scale(1.05);
-  background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
     color: #000000;
 }
 
