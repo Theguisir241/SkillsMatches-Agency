@@ -294,16 +294,6 @@ section {
   background-attachment: fixed;
 }
 
-#hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 1;
-}
 
 .hero-container {
   position: relative;
@@ -416,8 +406,7 @@ section {
   justify-content: center;
   border-radius: 50%;
   font-size: 2.2rem;
-  background-color: rgba(0, 188, 212, 0.1);
-  color:#00BCD4;
+  background-color: rgba(0, 187, 212, 0.034);
 }
 
 .feature-item h3 {
@@ -508,11 +497,10 @@ section {
   background: transparent;
   border-radius: 16px;
   padding: 30px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   text-align: center;
 }
-.focus-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px #00BCD4;
+.focus-card:hover { transform: translateY(-5px);
   cursor: pointer; }
 .card-icon-wrapper { font-size: 2rem; color: var(--text-dark); margin-bottom: 15px; transition: color 0.3s ease, transform 0.3s ease; }
 .focus-card:hover .card-icon-wrapper { color: var(--primary-color); transform: scale(1.2); }
@@ -520,10 +508,10 @@ section {
 .focus-card ul { list-style: none; padding: 0; text-align: left; display: inline-block; }
 .focus-card ul li { color: var(--text-muted); margin-bottom: 0.5rem; position: relative; padding-left: 20px; }
 .focus-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--primary-color); font-weight: 600; }
-.cta-card { background: var(--primary-color); color: var(--text-light); }
-.cta-card h3, .cta-card p { color: var(--text-light); }
+.cta-card { background: var(--background-light); color: var(--background-dark); }
+.cta-card h3, .cta-card p { color: var(--background-dark); }
 .cta-card .card-icon-wrapper { background:transparent; color: var(--text-light); }
-.btn-cta { background-color: var(--text-light); color: var(--primary-color); padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 1rem; display: inline-block; transition: transform 0.3s ease; }
+.btn-cta { background-color: var(--text-light); color: var(--background-dark); border: 2px solid black; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-top: 1rem; display: inline-block; transition: transform 0.3s ease; }
 .btn-cta:hover { transform: scale(1.05);
 color: #000000;
 }
@@ -628,8 +616,8 @@ color: #000000;
 }
 
 .contact-right {
-  background: var(--background-gray);
-  padding: 2.5rem;
+  background: var(--background-light);
+  padding: 1.6rem;
   border-radius: 15px;
   border: 1px solid var(--border-color);
 }
