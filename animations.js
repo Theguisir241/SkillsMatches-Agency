@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const baseColors = ['#CFF7E1', '#C7E6FF', '#D9C8FF', '#FBD0B5', '#FFE9B5'];
 
-  // Toutes les sections sauf hero et navbar
-  const sections = document.querySelectorAll('section:not(#hero):not(#navbar), footer');
+  const sections = document.querySelectorAll('section:not(#hero-section2):not(#navbar):not(#Faq)');
 
   sections.forEach(section => {
     section.style.position = 'relative';
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.height = section.offsetHeight;
 
     const particles = [];
-    const numParticles = 15;
+    const numParticles = 10;
     const padding = 20;
 
     for (let i = 0; i < numParticles; i++) {
