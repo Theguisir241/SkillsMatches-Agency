@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const baseColors = ['#CFF7E1', '#C7E6FF', '#D9C8FF', '#FBD0B5', '#FFE9B5'];
 
-  const sections = document.querySelectorAll('section:not(#hero-section2):not(#navbar):not(#Faq)');
+  const sections = document.querySelectorAll('section:not(#new-hero-id):not(#navbar):not(#Faq)');
 
   sections.forEach(section => {
     section.style.position = 'relative';
