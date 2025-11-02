@@ -31,7 +31,7 @@
   -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
 }
 
-section, footer {           
+section {           
   position: relative;
   overflow: hidden;
 }
@@ -42,7 +42,7 @@ section, footer {
 
 body,html {
   line-height: 1.6;
-  color: #333;
+  color: #000000;
   overflow-x: hidden; /* empêche le scroll horizontal */
   margin: 0;
   padding: 0 ;
@@ -141,6 +141,8 @@ body,html {
   font-size: 1.3rem;
   color: var(--text-dark);
   text-decoration: none;
+  font-style: italic;
+
 }
 
 
@@ -258,257 +260,275 @@ body,html {
   }
 }
 /* ===== HERO ===== */
-#hero {
+/* === HERO SECTION === */
+:root {
+  --navbar-height: 80px; /* hauteur de la navbar fixe */
+}
+
+.new-hero{
+  width: 100%;
+  padding-top: 80px;
+  background-color: transparent;
+}
+.box-container{
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-wrap: row;
-  justify-content: space-around;
+  gap: 50px;
+  justify-content: center;
   align-items: center;
-  padding: 8rem 100px;
-  background: white;
-  gap: 2rem;
-  animation: fadeIn 2s ease forwards;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin: 0 auto 0 20px;
+
+
+
+}
+.title-container h1{
+  text-align: center;
+  line-height: normal;
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  white-space: nowrap;
+  align-self: center;      /* centre verticalement dans sa cellule */
+  color: #000;
+}
+.box1{
   
-}
+  margin-top: 10px;
 
-/* --- Boutons Hero --- */
-.hero-buttons {
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease-out forwards;
-  animation-delay: 1.2s;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem; /* espace sous le texte */
-  align-self: flex-start; 
 }
+.box2{
 
-/* --- Boutons Hero --- */
-.hero-btn {
+  margin-top: 10px;
+
+}
+.img img{
+  width: 100%;
+  border-radius: 20px;
+}
+.hero-text p{
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  max-width: 90%;
+  margin-bottom: 1.5rem; /* ✅ réduit espace avant les boutons */
+  line-height: 1.5;
+  font-style: italic;
+  font-size: normal;
+}
+.hero-buttons a {
   background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
   color: white;
-  padding: 0.6rem 1.1rem;
+  padding: 0.7rem 1.6rem;
   border-radius: 50px;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  animation: pulse 3s ease-in-out infinite; /* animation continue */
-}
-
-.hero-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-}
-
-/* --- Texte & Image --- */
-.hero-text,
-.hero-image {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centre le bloc dans la section */
-  justify-content: center;
-}
-
-/* Bloc texte */
-.hero-text {
-  animation: slideLeft 1s ease forwards;
-  max-width: 600px; /* largeur contrôlée pour centrage équilibré */
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Titre centré */
-.hero-text h1 {
-  text-align: left;
-  font-size: 3rem;
-  margin-bottom: 12px;
-  line-height: 3rem;
-  margin-top: 10px;
-}
-
-/* Paragraphe aligné à gauche */
-.hero-text p {
-  text-align: left; /* retour à la ligne bien aligné */
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
-
-/* Bloc image */
-.hero-image {
   text-align: center;
-  animation: slideRight 1s ease forwards;
+  font-weight: 600;
+
+
 }
 
-.hero-image img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 20px;
-  margin-top: 30px;
-  margin-left: 60px;
-}
-@media (max-width: 768px) {
-  .hero-image img {
-    margin-left: 0;
-  }
-}
-/* --- Animation d’apparition (fade-in) --- */
-#hero .hero-text,
-#hero .hero-image {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1.2s ease-out forwards;
-}
+.hero-btn{
+  margin-left: 15px;
 
-#hero .hero-text {
-  animation-delay: 0.3s; /* le texte apparaît d'abord */
 }
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  #hero {
-    flex-direction: column;
-    padding: 4rem 6%;
-  }
-  /* Mobile responsive */
-@media (max-width: 768px) {
-  .hero-buttons .hero-btn {
-    white-space: nowrap;      /* empêche le texte de passer à la ligne */
-    overflow: hidden;         /* masque si jamais il dépasse */
-    text-overflow: ellipsis;  /* ajoute "..." si le texte est trop long */
-    font-size: 0.85rem;       /* réduit légèrement la taille du texte */
-    padding: 0.5rem 1rem;     /* réduit un peu le padding */
+/* ✅ Responsive forcé et prioritaire */
+@media screen and (max-width: 1024px) {
+  .box-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 25px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
   }
 
-  /* Optionnel : réduire encore un peu le deuxième bouton si nécessaire */
-  .hero-buttons .hero-btn:last-child {
-    width: auto;              /* largeur automatique pour le texte */
-    min-width: 140px;         /* éviter que le bouton soit trop petit */
+  .box1, .box2 {
+    width: 90% !important;
+    margin-top: 0 !important;
   }
-}
 
+  .img img {
+    width: 100% !important;
+    height: auto !important;
+  }
 
-  .hero-text,
-  .hero-image {
-    width: 100%;
+  .title-container h1 {
+    font-size: clamp(1.8rem, 6vw, 2.6rem) !important;
+    text-align: center !important;
+    white-space: normal !important; /* ✅ casse enfin les lignes */
+    line-height: 1.3 !important;
+  }
+
+  .hero-text p {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
   }
 
   .hero-btn {
-    display: flex;
-    width: 50%;
-    font-size: small;
-    margin-top: 8px;
-  } 
-}
-
-
-/* Apparence de base des boutons */
-
-
-/* L’image apparaît un peu après */
-#hero .hero-image {
-  animation-delay: 0.8s;
-}
-
-/* --- Animation de flottement continu de l’image --- */
-#hero .hero-image {
-  /* on garde le fadeInUp sur le conteneur si tu veux */
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1.0s ease-out forwards;
-  animation-delay: 0.8s;  
-}
-
-/* image : display block + animation float (séparée) */
-#hero .hero-image img {
-  display: block;                /* évite comportement inline */
-  width: 100%;
-  max-width: 500px;
-  border-radius: 15px;
-  /* animation dédiée à l'image (ne conflit pas avec l'animation du container) */
-  animation: float 5s ease-in-out infinite;
-  will-change: transform;        /* aide le navigateur */
-  backface-visibility: hidden;   /* améliore rendu sur certains navigateurs */
-  transform-origin: center center;
-}
-
-/* keyframes pour l'effet float - on utilise translate3d pour activer le GPU */
-
-
-/* keyframes fadeInUp (conteneur) */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    margin-left: 0 !important;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .new-hero {
+    padding-top: 60px !important;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem !important;
+  }
+
+  .hero-buttons a {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .title-container h1 {
+    font-size: clamp(1.4rem, 7vw, 2rem) !important;
+  }
+}
+
+
+
 
 
 /* ---- ABOUT ---- */
+/* === ABOUT SECTION === */
 #about {
-  padding: 5rem 8%;
+  margin-top: 100px;
+  font-family: "Lato", sans-serif;
+  padding: 50px;
 }
 
 .about-container {
-  margin-top: 0px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 2rem;
+  align-items: flex-start;
+  gap: 21pc;
 }
-
-.about-image img {
+.about-image img{
   width: 100%;
-  max-width: 520px;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
-.about-text {
-  flex: 1;
+/* --- Texte --- */
+.about-text p{
+  text-align: left;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  max-width: 90%;
+  margin-bottom: 1.5rem; /* ✅ réduit espace avant les boutons */
+  line-height: 1.5;
+  font-style: italic;
+  font-size: normal;
+  text-align: left;
 }
-
-.about-text h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.about-text h1{
+  text-align: center;
+  line-height: normal;
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  white-space: nowrap;
+  align-self: center;      /* centre verticalement dans sa cellule */
   color: #000;
 }
-
-.text-accent-2 {
-  color: #ffc192;
-}
-
-.about-text p {
-  color:black;
-  line-height: 1.6;
-  margin-bottom: 1.8rem;
-}
-
-.btn-second {
+.about-text a {
   background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
   color: white;
-  padding: 0.6rem 1.3rem;
+  font-weight: 600;
+  padding: 0.7rem 1.6rem;
   border-radius: 50px;
   text-decoration: none;
-  font-weight: 600;
-}
+  text-align: center;
 
-.btn-second:hover {
- transform: translateY(-3px) scale(1.05);
 }
+/* ✅ Responsive About Section (image en premier sur mobile) */
+@media screen and (max-width: 1024px) {
+  .about-container {
+    flex-direction: column !important; /* empile les éléments */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    text-align: center !important;
+  }
 
-@media (max-width: 768px) {
+  /* 🟢 Image en premier */
+  .about-image {
+    order: 1 !important;
+    width: 90% !important;
+  }
 
   .about-image img {
-    max-width: 100%;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 20px !important;
+  }
+
+  /* 🟢 Texte ensuite */
+  .about-text {
+    order: 2 !important;
+    width: 90% !important;
+  }
+
+  .about-text h1 {
+    font-size: clamp(1.8rem, 6vw, 2.6rem) !important;
+    white-space: normal !important; /* ✅ permet retour à la ligne */
+    text-align: center !important;
+    line-height: 1.3 !important;
+  }
+
+  .about-text p {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+  }
+
+  .about-text a {
+    display: inline-block !important;
+    margin-top: 10px !important;
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.95rem !important;
   }
 }
+
+@media screen and (max-width: 600px) {
+  #about {
+    padding: 40px 20px !important;
+    margin-top: 60px !important;
+  }
+
+  .about-container {
+    gap: 25px !important;
+  }
+
+  .about-text h1 {
+    font-size: clamp(1.4rem, 7vw, 2rem) !important;
+  }
+
+  .about-text p {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .about-text a {
+    font-size: 0.9rem !important;
+    padding: 0.5rem 1.1rem !important;
+  }
+}
+
+
+
 
 /* ===== LEARNING MODULES ===== */
 /* === SECTION MODULES (style carousel témoignages) === */
@@ -528,6 +548,9 @@ body,html {
 .modules-section .section-title {
   margin-top: 1.5rem;
   margin-bottom: 1rem; /* espace sous le titre */
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
 
 .modules-section .registration-fee {
@@ -724,6 +747,9 @@ body,html {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   color: #000;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
 
 .team-section .team-subtitle {
@@ -818,6 +844,9 @@ body,html {
   font-size: 2rem;
   color: #000;
   margin-bottom: 3rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
 
 
@@ -1033,6 +1062,9 @@ body,html {
 .section-title{
   text-align: center;
   padding: 30px;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
 .faq-container {
   max-width: 900px;
@@ -1096,6 +1128,9 @@ body,html {
 
   color: #000;
   font-weight: 700;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
 }
 
 .enrollment-left p {
@@ -1214,7 +1249,7 @@ body,html {
   background-color: #ffffff00; /* fond blanc */
   color: #000000;            /* texte noir */
   margin: 0;
-  padding: 3rem 1rem 1rem;   /* haut / côtés / bas */
+  padding: 3rem 0.5rem 1rem;   /* haut / côtés / bas */
 }
 
 /* Container des colonnes */
@@ -1265,15 +1300,11 @@ body,html {
 }
 
 .footer-links ul li a:hover {
-  border-bottom: 1px solid #90EDB4; /* soulignement vert clair */
+
   cursor: pointer;
 }
 
-/* Contact */
-.footer-contact p {
-  margin: 0.4rem 0;
-  color: #000000;
-}
+
 
 /* Icônes sociales */
 .footer-column .social-icons {
@@ -1286,7 +1317,7 @@ body,html {
 }
 .footer-column .social-icons a {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 35px;
   height: 35px;
@@ -1297,7 +1328,6 @@ body,html {
 }
 
 .footer-column .social-icons a:hover {
-  background:  #cff7e1;
   transform: translateY(-4px);
 }
 
@@ -1318,12 +1348,14 @@ body,html {
     align-items: flex-start; /* aligne au début */
     width: 100%;
   }
+  
 
   .footer-links,
   .footer-contact,
   .footer-column {
     margin-left: 0;
     padding-left: 0;
+    justify-content: center; /* ✅ centre les icônes sur mobile */
   }
 
   .footer {
@@ -1335,3 +1367,95 @@ body,html {
   }
 }
 
+
+/* ==============================
+   FOOTER
+============================== */
+/* Titres colonnes */
+.footer-links h3,
+.footer-contact h3,
+.footer-column h3 {
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+/* Liste de liens */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+  display: inline-block;
+  padding-bottom: 2px;
+  color: #000;
+  text-decoration: none;
+  transition: border-bottom 0.3s ease, color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  cursor: pointer;
+}
+
+/* Icônes sociales */
+.footer-column .social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer-column .social-icons a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: #000;
+  transition: background 0.3s ease, transform 0.3s ease;
+  background: transparent;
+}
+
+.footer-column .social-icons a:hover {
+  transform: translateY(-4px);
+}
+
+/* Partie du bas */
+.footer-bottom {
+  text-align: center;
+  padding: 0.5rem 0;
+  margin: 0;
+  color: #000;
+  border-top: 1px solid #ddd;
+}
+
+/* Mobile footer */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .footer-links,
+  .footer-contact,
+  .footer-column {
+    margin-left: 0;
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .footer {
+    padding-bottom: 0;
+  }
+
+  .footer-bottom {
+    margin-top: 0;
+  }
+}
