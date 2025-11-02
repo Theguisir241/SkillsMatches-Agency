@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.height = section.offsetHeight;
 
     const particles = [];
-    const numParticles = 10;
+    const numParticles = 15;
     const padding = 20;
 
     for (let i = 0; i < numParticles; i++) {
@@ -41,28 +41,29 @@ document.addEventListener("DOMContentLoaded", () => {
         radius: 30 + Math.random() * 50,
         baseColor: baseColors[Math.floor(Math.random() * baseColors.length)],
         color: baseColors[Math.floor(Math.random() * baseColors.length)],
-        speedX: -0.02 + Math.random() * 0.1, // plus lent
-        speedY: -0.03 + Math.random() * 0.1, // plus lent
+        speedX: -0.02 + Math.random() * 0.1,
+        speedY: -0.03 + Math.random() * 0.1,
         angle: Math.random() * Math.PI * 2,
-        angleSpeed: 0.001 + Math.random() * 0.003, // rotation plus lente
+        angleSpeed: 0.001 + Math.random() * 0.003,
         scale: 0.6 + Math.random() * 0.8,
-        scaleSpeed: 0.0002 + Math.random() * 0.001, // oscillation plus douce
-        opacity: 0.4 + Math.random() * 0.25, // plus léger
+        scaleSpeed: 0.0002 + Math.random() * 0.001,
+        opacity: 0.4 + Math.random() * 0.25,
         depth: 0.6 + Math.random() * 0.6,
         colorShift: Math.random() * 360
       });
     }
 
+    // === Version sans scintillement ===
     function shiftColor(color, shift) {
-      return `hsl(${(shift + Math.random() * 30) % 360}, 80%, 80%)`;
+      return `hsl(${shift % 360}, 80%, 80%)`; // suppression du Math.random()
     }
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach(p => {
-        p.colorShift += 0.1; // changement de couleur plus lent
-        const dynamicColor = shiftColor(p.baseColor, p.colorShift);
+        p.colorShift += 0.05; // variation douce et constante
+        const dynamicColor = shiftColor(p.colorShift, p.colorShift);
 
         ctx.save();
         ctx.translate(p.x, p.y);
