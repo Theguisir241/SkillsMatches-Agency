@@ -159,6 +159,7 @@ body,html {
   font-weight: 500;
   padding: 0.4rem 1rem;
   border-radius: 50px;
+   font-style: italic;
   
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -276,7 +277,6 @@ body,html {
   display: flex;
   gap: 50px;
   justify-content: center;
-  align-items: center;
   margin-top: 20px;
   margin: 0 auto 0 20px;
 
@@ -284,14 +284,16 @@ body,html {
 
 }
 .title-container h1{
-  text-align: center;
   line-height: normal;
   font-weight: 800;
   font-style: italic;
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
   white-space: nowrap;
   align-self: center;      /* centre verticalement dans sa cellule */
   color: #000;
+  margin-bottom: 20px;
+  margin-top: 25px;
+  text-align: top;
 }
 .box1{
   
@@ -311,10 +313,10 @@ body,html {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   max-width: 90%;
-  margin-bottom: 1.5rem; /* ✅ réduit espace avant les boutons */
+  margin-bottom: 4rem; /* ✅ réduit espace avant les boutons */
   line-height: 1.5;
   font-style: italic;
-  font-size: normal;
+  font-size: larger;
 }
 .hero-buttons a {
   background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
@@ -330,6 +332,7 @@ body,html {
 
 .hero-btn{
   margin-left: 15px;
+  
 
 }
 /* ✅ Responsive forcé et prioritaire */
@@ -382,6 +385,9 @@ body,html {
   .new-hero {
     padding-top: 60px !important;
   }
+  .hero-btn {
+    gap: 20px !important; /* ✅ espace entre les boutons en mobile */
+  }
 
   .hero-text p {
     font-size: 0.95rem !important;
@@ -393,6 +399,7 @@ body,html {
   }
 
   .title-container h1 {
+
     font-size: clamp(1.4rem, 7vw, 2rem) !important;
   }
 }
@@ -404,87 +411,89 @@ body,html {
 /* ---- ABOUT ---- */
 /* === ABOUT SECTION === */
 #about {
-  margin-top: 100px;
-  font-family: "Lato", sans-serif;
-  padding: 50px;
+  margin-top: 80px;
 }
 
 .about-container {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 21pc;
-}
-.about-image img{
   width: 100%;
-  border-radius: 20px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
 }
 
-/* --- Texte --- */
-.about-text p{
-  text-align: left;
+.about-text {
+  margin-top: 38px;
+  width: 50%;
+  margin-left: 20px;
+}
+
+.about-text h1 {
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 800;
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.about-text p {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   max-width: 90%;
-  margin-bottom: 1.5rem; /* ✅ réduit espace avant les boutons */
+  margin-bottom: 3rem;
   line-height: 1.5;
   font-style: italic;
-  font-size: normal;
+  font-size: larger;
   text-align: left;
 }
-.about-text h1{
-  text-align: center;
-  line-height: normal;
-  font-weight: 800;
-  font-style: italic;
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  white-space: nowrap;
-  align-self: center;      /* centre verticalement dans sa cellule */
-  color: #000;
+
+.about-img {
+  width: 48%;
 }
+
+.about-img img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+}
+
 .about-text a {
+  display: inline-block;
   background-image: linear-gradient(135deg, #cff7e1 10%, #c58bf2 50%, #f8b88b 100%);
   color: white;
-  font-weight: 600;
   padding: 0.7rem 1.6rem;
   border-radius: 50px;
   text-decoration: none;
-  text-align: center;
-
+  font-weight: 600;
+  transition: all 0.35s ease;
 }
-/* ✅ Responsive About Section (image en premier sur mobile) */
+
+.about-text a:hover {
+  transform: translateY(-3px);
+}
+
+/* ✅ Responsive - mobile et tablette */
 @media screen and (max-width: 1024px) {
   .about-container {
-    flex-direction: column !important; /* empile les éléments */
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 40px !important;
+    flex-direction: column !important;
     text-align: center !important;
+    gap: 30px !important;
   }
 
-  /* 🟢 Image en premier */
-  .about-image {
-    order: 1 !important;
+  .about-img {
+    order: 1; /* image d'abord */
     width: 90% !important;
   }
 
-  .about-image img {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 20px !important;
-  }
-
-  /* 🟢 Texte ensuite */
   .about-text {
-    order: 2 !important;
+    order: 2;
     width: 90% !important;
+    margin: 0 auto !important;
   }
 
   .about-text h1 {
-    font-size: clamp(1.8rem, 6vw, 2.6rem) !important;
-    white-space: normal !important; /* ✅ permet retour à la ligne */
-    text-align: center !important;
-    line-height: 1.3 !important;
+    font-size: clamp(1.8rem, 5vw, 2.4rem) !important;
+    margin-bottom: 15px !important;
   }
 
   .about-text p {
@@ -492,24 +501,22 @@ body,html {
     font-size: 1rem !important;
     line-height: 1.5 !important;
     text-align: center !important;
+    margin-bottom: 2rem !important;
   }
 
   .about-text a {
     display: inline-block !important;
-    margin-top: 10px !important;
-    padding: 0.6rem 1.2rem !important;
-    font-size: 0.95rem !important;
+    margin: 0 auto !important;
   }
 }
 
 @media screen and (max-width: 600px) {
-  #about {
-    padding: 40px 20px !important;
-    margin-top: 60px !important;
+  .about-container {
+    gap: 20px !important;
   }
 
-  .about-container {
-    gap: 25px !important;
+  .about-img {
+    width: 95% !important;
   }
 
   .about-text h1 {
@@ -518,15 +525,14 @@ body,html {
 
   .about-text p {
     font-size: 0.95rem !important;
-    line-height: 1.4 !important;
   }
 
   .about-text a {
+    padding: 0.6rem 1.3rem !important;
     font-size: 0.9rem !important;
-    padding: 0.5rem 1.1rem !important;
+    margin-bottom: 35px !important;
   }
 }
-
 
 
 
